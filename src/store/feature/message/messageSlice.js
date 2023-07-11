@@ -6,10 +6,11 @@ const initialState = {
 
 const baseUrl = 'http://127.0.0.1:4000/greetings/1';
 
-export const fetchMessage = createAsyncThunk('greetings/fetchmessage', async () => { return fetch(baseUrl)
-    .then((response) => response.json())
-    .then((data) => data.message);
-});
+export const fetchMessage = createAsyncThunk('greetings/fetchmessage', async () =>
+  fetch(baseUrl)
+  .then((response) => response.json())
+  .then((data) => data.message)
+);
 
 export const messageSlice = createSlice({
   name: 'message',
