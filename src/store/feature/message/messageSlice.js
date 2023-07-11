@@ -7,9 +7,9 @@ const initialState = {
 const baseUrl = 'http://127.0.0.1:4000/greetings/1';
 
 export const fetchMessage = createAsyncThunk('greetings/fetchmessage', async () => {
-  return fetch(baseUrl)
-    .then((response) => response.json())
-    .then((data) => data.message);
+  const response = await fetch(baseUrl);
+  const data = await response.json();
+  return data.message;
 });
 
 export const messageSlice = createSlice({
